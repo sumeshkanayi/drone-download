@@ -1,6 +1,6 @@
 # drone-mattermost
 
-[![Build Status](http://cloud.drone.io/api/badges/drone-plugins/drone-mattermost/status.svg)](http://cloud.drone.io/drone-plugins/drone-mattermost)
+[![Build Status](http://cloud.drone.io/api/badges/drone-plugins/drone-mattermost/status.svg)](https://cloud.drone.io/sumeshkanayi/drone-mattermost)
 [![Gitter chat](https://badges.gitter.im/drone/drone.png)](https://gitter.im/drone/drone)
 [![Join the discussion at https://discourse.drone.io](https://img.shields.io/badge/discourse-forum-orange.svg)](https://discourse.drone.io)
 [![Drone questions at https://stackoverflow.com](https://img.shields.io/badge/drone-stackoverflow-orange.svg)](https://stackoverflow.com/questions/tagged/drone.io)
