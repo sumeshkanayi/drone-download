@@ -155,7 +155,7 @@ steps:
     dry_run: true
     password:
       from_secret: docker_password
-    repo: plugins/mattermost
+    repo: sumeshkanayi/drone-mattermost
     tags: linux-arm64
     username:
       from_secret: docker_username
@@ -172,7 +172,7 @@ steps:
     dockerfile: docker/Dockerfile.linux.arm64
     password:
       from_secret: docker_password
-    repo: plugins/mattermost
+    repo: sumeshkanayi/drone-mattermost
     username:
       from_secret: docker_username
   when:
@@ -235,7 +235,7 @@ steps:
     dry_run: true
     password:
       from_secret: docker_password
-    repo: plugins/mattermost
+    repo: sumeshkanayi/drone-mattermost
     tags: linux-arm
     username:
       from_secret: docker_username
@@ -252,7 +252,7 @@ steps:
     dockerfile: docker/Dockerfile.linux.arm
     password:
       from_secret: docker_password
-    repo: plugins/mattermost
+    repo: sumeshkanayi/drone-mattermost
     username:
       from_secret: docker_username
   when:
