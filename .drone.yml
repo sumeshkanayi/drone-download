@@ -40,7 +40,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - "go build -v -ldflags \"-X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/amd64/drone-download"
+  - "go build -v -ldflags \"-X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/amd64/drone-mattermost"
   environment:
     CGO_ENABLED: 0
     GO111MODULE: on
@@ -65,7 +65,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - ./release/linux/amd64/drone-download --help
+  - ./release/linux/amd64/drone-mattermost --help
 
 - name: dryrun
   pull: always
@@ -120,7 +120,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - "go build -v -ldflags \"-X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm64/drone-download"
+  - "go build -v -ldflags \"-X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm64/drone-mattermost"
   environment:
     CGO_ENABLED: 0
     GO111MODULE: on
@@ -133,7 +133,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - "go build -v -ldflags \"-X main.version=${DRONE_TAG##v} -X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm64/drone-download"
+  - "go build -v -ldflags \"-X main.version=${DRONE_TAG##v} -X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm64/drone-mattermost"
   environment:
     CGO_ENABLED: 0
     GO111MODULE: on
@@ -145,7 +145,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - ./release/linux/arm64/drone-download --help
+  - ./release/linux/arm64/drone-mattermost --help
 
 - name: dryrun
   pull: always
@@ -200,7 +200,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - "go build -v -ldflags \"-X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm/drone-download"
+  - "go build -v -ldflags \"-X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm/drone-mattermost"
   environment:
     CGO_ENABLED: 0
     GO111MODULE: on
@@ -213,7 +213,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - "go build -v -ldflags \"-X main.version=${DRONE_TAG##v} -X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm/drone-download"
+  - "go build -v -ldflags \"-X main.version=${DRONE_TAG##v} -X main.build=${DRONE_BUILD_NUMBER}\" -a -o release/linux/arm/drone-mattermost"
   environment:
     CGO_ENABLED: 0
     GO111MODULE: on
@@ -225,7 +225,7 @@ steps:
   pull: always
   image: golang:1.11
   commands:
-  - ./release/linux/arm/drone-download --help
+  - ./release/linux/arm/drone-mattermost --help
 
 - name: dryrun
   pull: always

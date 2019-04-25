@@ -1,7 +1,7 @@
 repository:
-  name: drone-download
+  name: drone-mattermost
   description: Drone plugin for downloading files
-  homepage: http://plugins.drone.io/drone-plugins/drone-download
+  homepage: http://plugins.drone.io/drone-plugins/drone-mattermost
   topics: drone, drone-plugin
 
   private: false
