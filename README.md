@@ -24,7 +24,7 @@ Build the Docker image with the following commands:
 
 ```
 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a -tags netgo -o release/linux/amd64/drone-mattermost
-docker build --rm -t plugins/download .
+docker build --rm -t plugins/mattermost .
 ```
 
 ### Usage
