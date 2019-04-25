@@ -46,7 +46,7 @@ steps:
     dry_run: true
     password:
       from_secret: docker_password
-    repo: plugins/download
+    repo: plugins/mattermost
     tags: windows-amd64
     username:
       from_secret: docker_username
@@ -63,7 +63,7 @@ steps:
     dockerfile: docker/Dockerfile.windows.amd64
     password:
       from_secret: docker_password
-    repo: plugins/download
+    repo: plugins/mattermost
     username:
       from_secret: docker_username
   when:
