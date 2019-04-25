@@ -75,7 +75,7 @@ steps:
     dry_run: true
     password:
       from_secret: docker_password
-    repo: sumeshkanayi/drone-mattermost
+    repo: plugins/mattermost
     tags: linux-amd64
     username:
       from_secret: docker_username
@@ -92,7 +92,7 @@ steps:
     dockerfile: docker/Dockerfile.linux.amd64
     password:
       from_secret: docker_password
-    repo: plugins/mattermost
+    repo: sumeshkanayi/drone-mattermost
     username:
       from_secret: docker_username
   when:
