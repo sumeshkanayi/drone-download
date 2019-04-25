@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 )
 
@@ -15,51 +14,32 @@ var (
 )
 
 func main() {
+	fmt.Println("Inut vars", os.Getenv("PLUGIN_URL"))
+
+	for _, pair := range os.Environ() {
+		fmt.Println(pair)
+	}
 	app := cli.NewApp()
-	app.Name = "download plugin"
-	app.Usage = "download plugin"
+	app.Name = "mattermost message"
+	app.Usage = "mattermost message"
 	app.Action = run
 	app.Version = fmt.Sprintf("%s+%s", version, build)
+
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
-			Name:   "source",
-			Usage:  "source url for the download",
-			EnvVar: "PLUGIN_SOURCE",
+			Name:   "url",
+			Usage:  "mattermost url",
+			EnvVar: "PLUGIN_URL",
 		},
 		cli.StringFlag{
-			Name:   "destination",
-			Usage:  "destination for the download",
-			EnvVar: "PLUGIN_DESTINATION",
+			Name:   "message",
+			Usage:  "Text message to be sent",
+			EnvVar: "PLUGIN_MESSAGE",
 		},
 		cli.StringFlag{
-			Name:   "authorization",
-			Usage:  "value to send in the authorization header",
-			EnvVar: "PLUGIN_AUTHORIZATION,DOWNLOAD_AUTHORIZATION",
-		},
-		cli.StringFlag{
-			Name:   "username",
-			Usage:  "username for basic auth",
-			EnvVar: "PLUGIN_USERNAME,DOWNLOAD_USERNAME",
-		},
-		cli.StringFlag{
-			Name:   "password",
-			Usage:  "password for basic auth",
-			EnvVar: "PLUGIN_PASSWORD,DOWNLOAD_PASSWORD",
-		},
-		cli.BoolFlag{
-			Name:   "skip-verify",
-			Usage:  "skip ssl verification",
-			EnvVar: "PLUGIN_SKIP_VERIFY",
-		},
-		cli.StringFlag{
-			Name:   "md5-checksum",
-			Usage:  "checksum in md5 format",
-			EnvVar: "PLUGIN_MD5",
-		},
-		cli.StringFlag{
-			Name:   "sha256-checksum",
-			Usage:  "checksum in sha256 format",
-			EnvVar: "PLUGIN_SHA256,PLUGIN_SHA265",
+			Name:   "token",
+			Usage:  "Incoming webhook token",
+			EnvVar: "PLUGIN_TOKEN",
 		},
 	}
 
@@ -69,22 +49,25 @@ func main() {
 }
 
 func run(c *cli.Context) error {
+	fmt.Println("Inside  context", c)
+
 	plugin := Plugin{
 		Config: Config{
-			Source:        c.String("source"),
-			Destination:   c.String("destination"),
-			Authorization: c.String("authorization"),
-			Username:      c.String("username"),
-			Password:      c.String("password"),
-			SkipVerify:    c.Bool("skip-verify"),
-			MD5:           c.String("md5-checksum"),
-			SHA256:        c.String("sha256-checksum"),
+			Url:     c.String("url"),
+			Message: c.String("message"),
+			Token:   c.String("token"),
 		},
 	}
 
-	if plugin.Config.Source == "" {
-		return errors.New("Missing source URL")
-	}
+	/*
+		if plugin.Config.Url == "" {
+			return errors.New("Missing Mattermost URL")
+		}
+
+		if plugin.Config.Token == "" {
+			return errors.New("Missing Mattermost Token")
+		}
+	*/
 
 	return plugin.Exec()
 }
