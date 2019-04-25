@@ -1,4 +1,4 @@
-# drone-download
+# drone-mattermost
 
 [![Build Status](http://cloud.drone.io/api/badges/drone-plugins/drone-download/status.svg)](http://cloud.drone.io/drone-plugins/drone-download)
 [![Gitter chat](https://badges.gitter.im/drone/drone.png)](https://gitter.im/drone/drone)
@@ -23,7 +23,7 @@ go build
 Build the Docker image with the following commands:
 
 ```
-GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a -tags netgo -o release/linux/amd64/drone-download
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a -tags netgo -o release/linux/amd64/drone-mattermost
 docker build --rm -t plugins/download .
 ```
 
